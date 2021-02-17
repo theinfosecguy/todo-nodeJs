@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://kit.fontawesome.com/dfa7461034.js" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="css/master.css">
+    <title> <%= title  %>  </title>
+</head>
+<body>
+    <h1>Todo App</h1>
+    <% for(let i of todo_list){ %> 
+        <div class="container">
+            <ul>
+                <li>
+                    <div class="todoItem">
+                        <%= i.item %> 
+                        <a href="/deleteItem/?id=<%= i._id %> ">
+                            <button class="closeBtn"></button>
+                        </a>
+                    </div>
+                </li>
+            </ul>
+        </div>
+    <% } %>
+    <div class="formContainer">
+        <form action="/addItem" method="POST">
+            <input type="text" name="item" placeholder="Enter Item to Add" required autocomplete="off">
+            <button type="submit">Add</button>
+        </form>
+    </div>
+</body>
+</html>
